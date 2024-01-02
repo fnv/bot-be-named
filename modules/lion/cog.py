@@ -133,7 +133,7 @@ class LionCog(commands.Cog, name="Lion"):
         return len(worksheet.get_values()) + 1
 
     @command_predicates.is_solver()
-    @commands.command(name="solvedlion")
+    @commands.command(name="solved", aliases=["solvedlion"])
     async def solvedlion(self, ctx, answer: str = None):
         """Sets the puzzle to solved and updates the sheet and channel name accordingly
 
@@ -144,7 +144,7 @@ class LionCog(commands.Cog, name="Lion"):
         await self.statuslion(ctx, "solved", answer)
 
     @command_predicates.is_solver()
-    @commands.command(name="backsolvedlion", aliases=["backlion"])
+    @commands.command(name="backsolved", aliases=["backlion", "backsolvedlion"])
     async def backsolvedlion(self, ctx, answer: str = None):
         """Sets the puzzle to backsolved and updates the sheet and channel name accordingly
 
@@ -155,7 +155,7 @@ class LionCog(commands.Cog, name="Lion"):
         await self.statuslion(ctx, "backsolved", answer)
 
     @command_predicates.is_solver()
-    @commands.command(name="solvedishlion")
+    @commands.command(name="solvedish", aliases=["solvedishlion"])
     async def solvedishlion(self, ctx, answer: str = None):
         """Sets the puzzle to solvedish and updates the sheet and channel name accordingly
 
@@ -166,7 +166,7 @@ class LionCog(commands.Cog, name="Lion"):
         await self.statuslion(ctx, "solvedish", answer)
 
     @command_predicates.is_solver()
-    @commands.command(name="unsolvedlion", aliases=["unlion"])
+    @commands.command(name="unsolved", aliases=["unlion", "unsolvedlion"])
     async def unsolvedlion(self, ctx, answer: str = None):
         """Sets the puzzle to in progress and updates the sheet and channel name accordingly
 
@@ -320,7 +320,7 @@ class LionCog(commands.Cog, name="Lion"):
                 return
 
     @command_predicates.is_solver()
-    @commands.command(name="mtalion", aliases=["movetoarchivelion", "archivelion"])
+    @commands.command(name="archive", aliases=["movetoarchivelion", "archivelion", "mtalion"])
     async def mtalion(self, ctx, archive_name: str = None):
         """Finds a category with `<category_name> Archive`, and moves the channel to that category.
         Fails if there is no such category, or is the category is full (i.e. 50 Channels).
@@ -529,7 +529,7 @@ class LionCog(commands.Cog, name="Lion"):
                 return
 
     @command_predicates.is_solver()
-    @commands.command(name="chanlion")
+    @commands.command(name="newpuzzle", aliases=["newpuzz", "chanlion"])
     async def chanlion(self, ctx, chan_name: str, *args):
         """Creates a new tab and a new channel for a new feeder puzzle and then updates the info in the sheet accordingly.
 
@@ -561,7 +561,7 @@ class LionCog(commands.Cog, name="Lion"):
         )
 
     @command_predicates.is_solver()
-    @commands.command(name="metalion", aliases=["metachanlion"])
+    @commands.command(name="newmeta", aliases=["metalion", "metachanlion"])
     async def metalion(self, ctx, chan_name: str, *args):
         """Creates a new tab and a new channel for a new metapuzzle and then updates the info in the sheet accordingly.
 
@@ -1105,7 +1105,7 @@ class LionCog(commands.Cog, name="Lion"):
         return new_sheet
 
     @command_predicates.is_solver()
-    @commands.command(name="tetherlion")
+    @commands.command(name="tetherlion", aliases=["tether"])
     async def tetherlion(self, ctx, sheet_key_or_link: str):
         """Tethers a sheet to the category and also checks that it is the correct format to be used by the lion commands
 

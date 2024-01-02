@@ -33,7 +33,7 @@ class SheetsCog(commands.Cog, name="Sheets"):
     @command_predicates.is_solver()
     @commands.command(
         name="addtether",
-        aliases=["editsheettether", "tether", "edittether", "addsheettether"],
+        aliases=["editsheettether", "old-tether", "edittether", "addsheettether"],
     )
     async def addsheettether(self, ctx, sheet_key_or_link: str):
         """Tethers a sheet to the current category.
